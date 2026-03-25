@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import DefaultLayout from './layouts/DefaultLayout'
 import HomePage from './pages/HomePage'
 import MoviesPage from './pages/MoviesPage'
-import MovieDetail from './pages/MovieDetail'
+import MovieDetailPage from './pages/MovieDetailPage'
 import './App.css'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route Component={DefaultLayout}>
           <Route path="/" Component={HomePage} />
           <Route path="/movies" Component={MoviesPage} />
-          <Route path="/movies/:id" Component={MovieDetail} />
+          <Route path="/movies/:id" Component={MovieDetailPage} />
         </Route>
       </Routes>
     </BrowserRouter>

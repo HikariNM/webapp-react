@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom"
-import MovieCard from "../layouts/MovieCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import MovieCard from "../components/MovieCard";
 
 export default function MoviePage() {
 
-    const sampleMovie =
-    {
-        id: 1,
-        title: 'Title',
-        director: 'Director',
-        genre: 'Genre 1',
-        release_year: '2000',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg'
-    };
+    const [movies, setMovies] = useState([]);
 
-    const movies = [sampleMovie, sampleMovie, sampleMovie];
+    useEffect(() => {
+        axios.get('http://localhost:3000/movies').then(res => {
+            console.log(res.data);
+            setMovies(res.data);
+        }).catch(err => console.error('Oops!', err.message));
+    }, [])
 
     return (
         <div className="max-w-6xl mx-auto m-6">

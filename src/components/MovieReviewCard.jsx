@@ -1,5 +1,6 @@
 export default function MovieReviewCard({ review }) {
     const { id, name, text, vote } = review;
+    console.log(review);
     return (
         <div className="flex mt-1 justify-center max-w-6xl mx-auto gap-5 flex-col md:flex-row items-center bg-gray-100 p-6 rounded-lg">
 
