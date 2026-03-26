@@ -8,7 +8,7 @@ export default function MoviePage() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/movies').then(res => {
+        axios.get('http://localhost:3000/api/movies').then(res => {
             console.log(res.data);
             setMovies(res.data);
         }).catch(err => console.error('Oops!', err.message));

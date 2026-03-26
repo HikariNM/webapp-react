@@ -6,7 +6,7 @@ import MovieReviewCard from "../components/MovieReviewCard";
 
 export default function MovieDetail() {
 
-    const URL = 'http://localhost:3000/movies';
+    const URL = 'http://localhost:3000/api/movies';
     const { id } = useParams();
     const [movie, setMovie] = useState({});
 
