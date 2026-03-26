@@ -25,10 +25,10 @@ export default function MovieDetail() {
                 <p>Explore the world of {movie.title}</p>
             </div>
 
-            {/* <div className="flex justify-between mx-auto max-w-6xl">
-                <Link to={`/movies/${Number(id) - 1} `}>Previous Movie</Link>
-                <Link to={`/movies/${Number(id) + 1} `}>Next Movie</Link>
-            </div> */}
+            <div className="flex justify-between mx-auto max-w-6xl">
+                <Link to={`/movies/${Number(id) > 1 ? Number(id) - 1 : 1}`}>Previous Movie</Link>
+                <Link to={`/movies/${Number(id) > movie.count ? Number(id) + 1 : movie.count}`}>Next Movie</Link>
+            </div>
 
             <div className="my-12">
                 {<MovieDetailCard movie={movie} key={movie.id} />}
