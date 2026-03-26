@@ -21,7 +21,7 @@ export default function MoviePage() {
                 <p>Discover your next favorite cinematic experience</p>
             </div>
 
-            <div className="m-8 grid grid-cols-3 gap-6">
+            <div className="m-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                 {movies.map(movie => <MovieCard movie={movie} key={movie.id} />)}
             </div>
         </div>

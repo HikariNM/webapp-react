@@ -6,13 +6,6 @@ import MovieReviewCard from "../components/MovieReviewCard";
 
 export default function MovieDetail() {
 
-    const sampleReview =
-    {
-        vote: 4.5,
-        name: 'Reviewer Name',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    };
-
     const URL = 'http://localhost:3000/movies';
     const { id } = useParams();
     const [movie, setMovie] = useState({});
@@ -24,9 +17,6 @@ export default function MovieDetail() {
         }).catch(err => console.error('Oops!', err.message));
     }, [id])
 
-    const [review, setReview] = useState({});
-
-
     return (
         <div className="mt-6">
             <div className="text-center">
@@ -35,14 +25,20 @@ export default function MovieDetail() {
                 <p>Explore the world of {movie.title}</p>
             </div>
 
+            {/* <div className="flex justify-between mx-auto max-w-6xl">
+                <Link to={`/movies/${Number(id) - 1} `}>Previous Movie</Link>
+                <Link to={`/movies/${Number(id) + 1} `}>Next Movie</Link>
+            </div> */}
+
             <div className="my-12">
                 {<MovieDetailCard movie={movie} key={movie.id} />}
             </div>
 
             <div>
                 {movie.text?.map(review => <MovieReviewCard review={review} key={review.id} />)}
-
             </div>
+
+
         </div>
     )
 }
