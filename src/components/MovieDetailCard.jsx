@@ -1,5 +1,5 @@
 export default function MovieDetailCard({ movie }) {
-    const { id, title, director, genre, release_year, image, abstract, vote } = movie;
+    const { id, title, director, genre, release_year, image, abstract, average_review } = movie;
     const assetsUrl = 'http://localhost:3000/static/cover';
     return (
         <div className="flex justify-center max-w-6xl mx-auto gap-5 flex-col md:flex-row items-center bg-gray-200 p-6 rounded-lg">
@@ -8,7 +8,7 @@ export default function MovieDetailCard({ movie }) {
 
             <div className="flex gap-5 justify-start text-start mb-3 font-medium flex-col">
                 <h2 className="text-4xl my-3">{title}</h2>
-                <p><span className="text-amber-500 font-bold"> &#9734; {vote}/5</span> <span> | </span> <span>{release_year}</span><span> | </span><span className="uppercase">{genre}</span></p>
+                <p><span className="text-amber-500 font-bold"> &#9734; {average_review}/5</span> <span> | </span> <span>{release_year}</span><span> | </span><span className="uppercase">{genre}</span></p>
                 <div><p className="uppercase font-bold">Directed By:</p>
                     <p>{director}</p>
                 </div>

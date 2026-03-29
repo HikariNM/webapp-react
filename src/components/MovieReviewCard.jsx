@@ -1,5 +1,5 @@
 export default function MovieReviewCard({ review }) {
-    const { id, name, text, vote, image } = review;
+    const { id, name, text, vote } = review;
     return (
         <div className="flex mt-1 justify-center max-w-6xl mx-auto gap-5 flex-col md:flex-row items-center bg-gray-200 p-6 rounded-lg">
 

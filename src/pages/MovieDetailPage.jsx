@@ -3,6 +3,7 @@ import { use, useEffect, useState } from "react";
 import axios from "axios";
 import MovieDetailCard from "../components/MovieDetailCard";
 import MovieReviewCard from "../components/MovieReviewCard";
+import ReviewForm from "../components/ReviewForm";
 
 export default function MovieDetail() {
 
@@ -27,7 +28,7 @@ export default function MovieDetail() {
 
             <div className="flex justify-between mx-auto max-w-6xl">
                 <Link to={`/movies/${Number(id) > 1 ? Number(id) - 1 : 1}`}>Previous Movie</Link>
-                <Link to={`/movies/${Number(id) > movie.count ? Number(id) + 1 : movie.count}`}>Next Movie</Link>
+                <Link to={`/movies/${Number(id) < movie.archiveLength ? Number(id) + 1 : movie.archiveLength}`}>Next Movie</Link>
             </div>
 
             <div className="my-12">
@@ -36,6 +37,10 @@ export default function MovieDetail() {
 
             <div>
                 {movie.text?.map(review => <MovieReviewCard review={review} key={review.id} />)}
+            </div>
+
+            <div>
+                {<ReviewForm movieId={movie.id} />}
             </div>
 
 
