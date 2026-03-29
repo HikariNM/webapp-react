@@ -11,12 +11,14 @@ export default function MovieDetail() {
     const { id } = useParams();
     const [movie, setMovie] = useState({});
 
-    useEffect(() => {
+    function getData() {
         axios.get(`${URL}/${id}`).then(res => {
             console.log(res.data);
             setMovie(res.data);
         }).catch(err => console.error('Oops!', err.message));
-    }, [id])
+    }
+
+    useEffect(() => { getData(); }, [id])
 
     return (
         <div className="mt-6">
@@ -40,9 +42,8 @@ export default function MovieDetail() {
             </div>
 
             <div>
-                {<ReviewForm movieId={movie.id} />}
+                {<ReviewForm movieId={movie.id} onNewReview={getData} />}
             </div>
-
 
         </div>
     )
