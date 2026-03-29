@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom"
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieDetailCard from "../components/MovieDetailCard";
 import MovieReviewCard from "../components/MovieReviewCard";
@@ -23,14 +23,14 @@ export default function MovieDetail() {
     return (
         <div className="mt-6">
             <div className="text-center">
-                <Link to="/movies" className="text-indigo-500">Return to the Movie Archive</Link>
+                <Link to="/movies" className="text-gray-700 hover:text-indigo-500">Return to the Movie Archive</Link>
                 <h1 className="text-3xl p-2">{movie.title} Detail Page</h1>
                 <p>Explore the world of {movie.title}</p>
             </div>
 
             <div className="flex justify-between mx-auto max-w-6xl">
-                <Link to={`/movies/${Number(id) > 1 ? Number(id) - 1 : 1}`}>Previous Movie</Link>
-                <Link to={`/movies/${Number(id) < movie.archiveLength ? Number(id) + 1 : movie.archiveLength}`}>Next Movie</Link>
+                <Link className='hover:text-indigo-500' to={`/movies/${Number(id) > 1 ? Number(id) - 1 : 1}`}>Previous Movie</Link>
+                <Link className='hover:text-indigo-500' to={`/movies/${Number(id) < movie.archiveLength ? Number(id) + 1 : movie.archiveLength}`}>Next Movie</Link>
             </div>
 
             <div className="my-12">
